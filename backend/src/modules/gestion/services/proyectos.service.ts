@@ -37,7 +37,7 @@ export class ProyectosService {
 
     async actualizarProyecto(id: number, dto: UpdateProyectoDto): Promise<void> {
 
-        const proyecto: Proyecto | null = await this.repository.findOne({ where: { id }, relations: ['cliente'] });
+        const proyecto: Proyecto | null = await this.repository.findOne({ where: { id } });
 
         if (!proyecto) {
             throw new BadRequestException('Proyecto no encontrado');
